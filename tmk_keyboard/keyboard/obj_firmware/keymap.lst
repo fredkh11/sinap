@@ -1,0 +1,981 @@
+   1               		.file	"keymap.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__RAMPZ__ = 0x3b
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.text
+   9               	.Ltext0:
+  10               		.cfi_sections	.debug_frame
+  11               		.section	.text.action_get_macro,"ax",@progbits
+  12               	.global	action_get_macro
+  14               	action_get_macro:
+  15               	.LFB103:
+  16               		.file 1 "keymap.c"
+   1:keymap.c      **** #include "keymap_common.h"
+   2:keymap.c      **** 
+   3:keymap.c      **** const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+   4:keymap.c      ****     /* layer 0 */
+   5:keymap.c      ****     KEYMAP(
+   6:keymap.c      ****          ESC,    1,    2,    3,    4,    5,    6,    7,    8,    9,    0, MINS,  EQL, BSPC, \
+   7:keymap.c      ****          TAB,    Q,    W,    E,    R,    T,    Y,    U,    I,    O,    P, LBRC, RBRC, BSLS, \
+   8:keymap.c      ****         CAPS,    A,    S,    D,    F,    G,    H,    J,    K,    L, SCLN, QUOT,  ENT,  ENT, \
+   9:keymap.c      ****         LSFT,    Z,    X,    C,    V,    B,    N,    M, COMM,  DOT, SLSH, PGUP,   UP, PGDN, \
+  10:keymap.c      ****         LCTL, LGUI, LALT,  FN0,        SPC,        SPC, LCTL,   NO, MENU, LEFT, DOWN, RGHT  ),
+  11:keymap.c      ****     /* layer 1 */
+  12:keymap.c      ****     KEYMAP(
+  13:keymap.c      ****          GRV,   F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12, TRNS, \
+  14:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  15:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  16:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  17:keymap.c      ****         TRNS, TRNS, TRNS, TRNS,       TRNS,       TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS  ),
+  18:keymap.c      ****     /* layer 2 */
+  19:keymap.c      ****     KEYMAP(
+  20:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  21:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  22:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  23:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  24:keymap.c      ****         TRNS, TRNS, TRNS, TRNS,       TRNS,       TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS  ),
+  25:keymap.c      ****     /* layer 3 */
+  26:keymap.c      ****     KEYMAP(
+  27:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  28:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  29:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  30:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  31:keymap.c      ****         TRNS, TRNS, TRNS, TRNS,       TRNS,       TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS  ),
+  32:keymap.c      ****     /* layer 4 */
+  33:keymap.c      ****     KEYMAP(
+  34:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  35:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  36:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  37:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  38:keymap.c      ****         TRNS, TRNS, TRNS, TRNS,       TRNS,       TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS  ),
+  39:keymap.c      ****     /* layer 5 */
+  40:keymap.c      ****     KEYMAP(
+  41:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  42:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  43:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  44:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  45:keymap.c      ****         TRNS, TRNS, TRNS, TRNS,       TRNS,       TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS  ),
+  46:keymap.c      ****     /* layer 6 */
+  47:keymap.c      ****     KEYMAP(
+  48:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  49:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  50:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  51:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  52:keymap.c      ****         TRNS, TRNS, TRNS, TRNS,       TRNS,       TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS  ),
+  53:keymap.c      ****     /* layer 7 */
+  54:keymap.c      ****     KEYMAP(
+  55:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  56:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  57:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  58:keymap.c      ****         TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+  59:keymap.c      ****         TRNS, TRNS, TRNS, TRNS,       TRNS,       TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS  ),
+  60:keymap.c      **** };
+  61:keymap.c      **** 
+  62:keymap.c      **** enum macro_id {
+  63:keymap.c      ****     MACRO_0,
+  64:keymap.c      ****     MACRO_1,
+  65:keymap.c      ****     MACRO_2,
+  66:keymap.c      ****     MACRO_3,
+  67:keymap.c      ****     MACRO_4,
+  68:keymap.c      ****     MACRO_5,
+  69:keymap.c      ****     MACRO_6,
+  70:keymap.c      ****     MACRO_7,
+  71:keymap.c      **** };
+  72:keymap.c      **** 
+  73:keymap.c      **** const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
+  17               		.loc 1 73 0
+  18               		.cfi_startproc
+  19               	.LVL0:
+  20               	/* prologue: function */
+  21               	/* frame size = 0 */
+  22               	/* stack size = 0 */
+  23               	.L__stack_usage = 0
+  74:keymap.c      ****     keyevent_t event = record->event;
+  24               		.loc 1 74 0
+  25 0000 FC01      		movw r30,r24
+  26 0002 8281      		ldd r24,Z+2
+  27               	.LVL1:
+  75:keymap.c      ****     switch (id) {
+  28               		.loc 1 75 0
+  29 0004 462F      		mov r20,r22
+  30               	.LVL2:
+  31 0006 50E0      		ldi r21,0
+  32 0008 4830      		cpi r20,8
+  33 000a 5105      		cpc r21,__zero_reg__
+  34 000c 00F4      		brsh .L12
+  35 000e FA01      		movw r30,r20
+  36               	.LVL3:
+  37 0010 E050      		subi r30,lo8(-(gs(.L4)))
+  38 0012 F040      		sbci r31,hi8(-(gs(.L4)))
+  39 0014 0C94 0000 		jmp __tablejump2__
+  40               	.LVL4:
+  41               		.section	.progmem.gcc_sw_table.action_get_macro,"a",@progbits
+  42               		.p2align	1
+  43               	.L4:
+  44 0000 0000      		.word gs(.L3)
+  45 0002 0000      		.word gs(.L5)
+  46 0004 0000      		.word gs(.L6)
+  47 0006 0000      		.word gs(.L7)
+  48 0008 0000      		.word gs(.L8)
+  49 000a 0000      		.word gs(.L9)
+  50 000c 0000      		.word gs(.L10)
+  51 000e 0000      		.word gs(.L11)
+  52               		.section	.text.action_get_macro
+  53               	.L3:
+  76:keymap.c      ****         case MACRO_0:
+  77:keymap.c      ****             return (event.pressed ?
+  78:keymap.c      ****                     MACRO( END ) :
+  54               		.loc 1 78 0
+  55 0018 8111      		cpse r24,__zero_reg__
+  56 001a 00C0      		rjmp .L13
+  57 001c 80E0      		ldi r24,lo8(__m.4656)
+  58 001e 90E0      		ldi r25,hi8(__m.4656)
+  59               	.LVL5:
+  60 0020 0895      		ret
+  61               	.LVL6:
+  62               	.L5:
+  79:keymap.c      ****                     MACRO( END ));
+  80:keymap.c      ****         case MACRO_1:
+  81:keymap.c      ****             return (event.pressed ?
+  82:keymap.c      ****                     MACRO( END ) :
+  63               		.loc 1 82 0
+  64 0022 8111      		cpse r24,__zero_reg__
+  65 0024 00C0      		rjmp .L14
+  66 0026 80E0      		ldi r24,lo8(__m.4661)
+  67 0028 90E0      		ldi r25,hi8(__m.4661)
+  68               	.LVL7:
+  69 002a 0895      		ret
+  70               	.LVL8:
+  71               	.L6:
+  83:keymap.c      ****                     MACRO( END ));
+  84:keymap.c      ****         case MACRO_2:
+  85:keymap.c      ****             return (event.pressed ?
+  86:keymap.c      ****                     MACRO( END ) :
+  72               		.loc 1 86 0
+  73 002c 8111      		cpse r24,__zero_reg__
+  74 002e 00C0      		rjmp .L15
+  75 0030 80E0      		ldi r24,lo8(__m.4666)
+  76 0032 90E0      		ldi r25,hi8(__m.4666)
+  77               	.LVL9:
+  78 0034 0895      		ret
+  79               	.LVL10:
+  80               	.L7:
+  87:keymap.c      ****                     MACRO( END ));
+  88:keymap.c      ****         case MACRO_3:
+  89:keymap.c      ****             return (event.pressed ?
+  90:keymap.c      ****                     MACRO( END ) :
+  81               		.loc 1 90 0
+  82 0036 8111      		cpse r24,__zero_reg__
+  83 0038 00C0      		rjmp .L16
+  84 003a 80E0      		ldi r24,lo8(__m.4671)
+  85 003c 90E0      		ldi r25,hi8(__m.4671)
+  86               	.LVL11:
+  87 003e 0895      		ret
+  88               	.LVL12:
+  89               	.L8:
+  91:keymap.c      ****                     MACRO( END ));
+  92:keymap.c      ****         case MACRO_4:
+  93:keymap.c      ****             return (event.pressed ?
+  94:keymap.c      ****                     MACRO( END ) :
+  90               		.loc 1 94 0
+  91 0040 8111      		cpse r24,__zero_reg__
+  92 0042 00C0      		rjmp .L17
+  93 0044 80E0      		ldi r24,lo8(__m.4676)
+  94 0046 90E0      		ldi r25,hi8(__m.4676)
+  95               	.LVL13:
+  96 0048 0895      		ret
+  97               	.LVL14:
+  98               	.L9:
+  95:keymap.c      ****                     MACRO( END ));
+  96:keymap.c      ****         case MACRO_5:
+  97:keymap.c      ****             return (event.pressed ?
+  98:keymap.c      ****                     MACRO( END ) :
+  99               		.loc 1 98 0
+ 100 004a 8111      		cpse r24,__zero_reg__
+ 101 004c 00C0      		rjmp .L18
+ 102 004e 80E0      		ldi r24,lo8(__m.4681)
+ 103 0050 90E0      		ldi r25,hi8(__m.4681)
+ 104               	.LVL15:
+ 105 0052 0895      		ret
+ 106               	.LVL16:
+ 107               	.L10:
+  99:keymap.c      ****                     MACRO( END ));
+ 100:keymap.c      ****         case MACRO_6:
+ 101:keymap.c      ****             return (event.pressed ?
+ 102:keymap.c      ****                     MACRO( END ) :
+ 108               		.loc 1 102 0
+ 109 0054 8111      		cpse r24,__zero_reg__
+ 110 0056 00C0      		rjmp .L19
+ 111 0058 80E0      		ldi r24,lo8(__m.4686)
+ 112 005a 90E0      		ldi r25,hi8(__m.4686)
+ 113               	.LVL17:
+ 114 005c 0895      		ret
+ 115               	.LVL18:
+ 116               	.L11:
+ 103:keymap.c      ****                     MACRO( END ));
+ 104:keymap.c      ****         case MACRO_7:
+ 105:keymap.c      ****             return (event.pressed ?
+ 106:keymap.c      ****                     MACRO( END ) :
+ 117               		.loc 1 106 0
+ 118 005e 8111      		cpse r24,__zero_reg__
+ 119 0060 00C0      		rjmp .L20
+ 120 0062 80E0      		ldi r24,lo8(__m.4691)
+ 121 0064 90E0      		ldi r25,hi8(__m.4691)
+ 122               	.LVL19:
+ 123 0066 0895      		ret
+ 124               	.LVL20:
+ 125               	.L12:
+ 107:keymap.c      ****                     MACRO( END ));
+ 108:keymap.c      ****     }
+ 109:keymap.c      ****     return MACRO_NONE;
+ 126               		.loc 1 109 0
+ 127 0068 80E0      		ldi r24,0
+ 128 006a 90E0      		ldi r25,0
+ 129               	.LVL21:
+ 130 006c 0895      		ret
+ 131               	.LVL22:
+ 132               	.L13:
+  78:keymap.c      ****                     MACRO( END ));
+ 133               		.loc 1 78 0
+ 134 006e 80E0      		ldi r24,lo8(__m.4654)
+ 135 0070 90E0      		ldi r25,hi8(__m.4654)
+ 136               	.LVL23:
+ 137 0072 0895      		ret
+ 138               	.LVL24:
+ 139               	.L14:
+  82:keymap.c      ****                     MACRO( END ));
+ 140               		.loc 1 82 0
+ 141 0074 80E0      		ldi r24,lo8(__m.4659)
+ 142 0076 90E0      		ldi r25,hi8(__m.4659)
+ 143               	.LVL25:
+ 144 0078 0895      		ret
+ 145               	.LVL26:
+ 146               	.L15:
+  86:keymap.c      ****                     MACRO( END ));
+ 147               		.loc 1 86 0
+ 148 007a 80E0      		ldi r24,lo8(__m.4664)
+ 149 007c 90E0      		ldi r25,hi8(__m.4664)
+ 150               	.LVL27:
+ 151 007e 0895      		ret
+ 152               	.LVL28:
+ 153               	.L16:
+  90:keymap.c      ****                     MACRO( END ));
+ 154               		.loc 1 90 0
+ 155 0080 80E0      		ldi r24,lo8(__m.4669)
+ 156 0082 90E0      		ldi r25,hi8(__m.4669)
+ 157               	.LVL29:
+ 158 0084 0895      		ret
+ 159               	.LVL30:
+ 160               	.L17:
+  94:keymap.c      ****                     MACRO( END ));
+ 161               		.loc 1 94 0
+ 162 0086 80E0      		ldi r24,lo8(__m.4674)
+ 163 0088 90E0      		ldi r25,hi8(__m.4674)
+ 164               	.LVL31:
+ 165 008a 0895      		ret
+ 166               	.LVL32:
+ 167               	.L18:
+  98:keymap.c      ****                     MACRO( END ));
+ 168               		.loc 1 98 0
+ 169 008c 80E0      		ldi r24,lo8(__m.4679)
+ 170 008e 90E0      		ldi r25,hi8(__m.4679)
+ 171               	.LVL33:
+ 172 0090 0895      		ret
+ 173               	.LVL34:
+ 174               	.L19:
+ 102:keymap.c      ****                     MACRO( END ));
+ 175               		.loc 1 102 0
+ 176 0092 80E0      		ldi r24,lo8(__m.4684)
+ 177 0094 90E0      		ldi r25,hi8(__m.4684)
+ 178               	.LVL35:
+ 179 0096 0895      		ret
+ 180               	.LVL36:
+ 181               	.L20:
+ 106:keymap.c      ****                     MACRO( END ));
+ 182               		.loc 1 106 0
+ 183 0098 80E0      		ldi r24,lo8(__m.4689)
+ 184 009a 90E0      		ldi r25,hi8(__m.4689)
+ 185               	.LVL37:
+ 110:keymap.c      **** }
+ 186               		.loc 1 110 0
+ 187 009c 0895      		ret
+ 188               		.cfi_endproc
+ 189               	.LFE103:
+ 191               		.section	.progmem.data.__m.4691,"a",@progbits
+ 194               	__m.4691:
+ 195 0000 00        		.zero	1
+ 196               		.section	.progmem.data.__m.4689,"a",@progbits
+ 199               	__m.4689:
+ 200 0000 00        		.zero	1
+ 201               		.section	.progmem.data.__m.4686,"a",@progbits
+ 204               	__m.4686:
+ 205 0000 00        		.zero	1
+ 206               		.section	.progmem.data.__m.4684,"a",@progbits
+ 209               	__m.4684:
+ 210 0000 00        		.zero	1
+ 211               		.section	.progmem.data.__m.4681,"a",@progbits
+ 214               	__m.4681:
+ 215 0000 00        		.zero	1
+ 216               		.section	.progmem.data.__m.4679,"a",@progbits
+ 219               	__m.4679:
+ 220 0000 00        		.zero	1
+ 221               		.section	.progmem.data.__m.4676,"a",@progbits
+ 224               	__m.4676:
+ 225 0000 00        		.zero	1
+ 226               		.section	.progmem.data.__m.4674,"a",@progbits
+ 229               	__m.4674:
+ 230 0000 00        		.zero	1
+ 231               		.section	.progmem.data.__m.4671,"a",@progbits
+ 234               	__m.4671:
+ 235 0000 00        		.zero	1
+ 236               		.section	.progmem.data.__m.4669,"a",@progbits
+ 239               	__m.4669:
+ 240 0000 00        		.zero	1
+ 241               		.section	.progmem.data.__m.4666,"a",@progbits
+ 244               	__m.4666:
+ 245 0000 00        		.zero	1
+ 246               		.section	.progmem.data.__m.4664,"a",@progbits
+ 249               	__m.4664:
+ 250 0000 00        		.zero	1
+ 251               		.section	.progmem.data.__m.4661,"a",@progbits
+ 254               	__m.4661:
+ 255 0000 00        		.zero	1
+ 256               		.section	.progmem.data.__m.4659,"a",@progbits
+ 259               	__m.4659:
+ 260 0000 00        		.zero	1
+ 261               		.section	.progmem.data.__m.4656,"a",@progbits
+ 264               	__m.4656:
+ 265 0000 00        		.zero	1
+ 266               		.section	.progmem.data.__m.4654,"a",@progbits
+ 269               	__m.4654:
+ 270 0000 00        		.zero	1
+ 271               	.global	fn_actions
+ 272               		.section	.progmem.data.fn_actions,"a",@progbits
+ 275               	fn_actions:
+ 276 0000 F1A1      		.word	-24079
+ 277 0002 F1A2      		.word	-23823
+ 278 0004 F1A3      		.word	-23567
+ 279 0006 F1A4      		.word	-23311
+ 280 0008 F1A5      		.word	-23055
+ 281 000a F1A6      		.word	-22799
+ 282 000c F1A7      		.word	-22543
+ 283 000e 028A      		.word	-30206
+ 284 0010 048A      		.word	-30204
+ 285 0012 088A      		.word	-30200
+ 286 0014 218A      		.word	-30175
+ 287 0016 228A      		.word	-30174
+ 288 0018 248A      		.word	-30172
+ 289 001a 288A      		.word	-30168
+ 290 001c 00C0      		.word	-16384
+ 291 001e 01C0      		.word	-16383
+ 292 0020 02C0      		.word	-16382
+ 293 0022 03C0      		.word	-16381
+ 294 0024 04C0      		.word	-16380
+ 295 0026 05C0      		.word	-16379
+ 296 0028 06C0      		.word	-16378
+ 297 002a 07C0      		.word	-16377
+ 298               	.global	keymaps
+ 299               		.section	.progmem.data.keymaps,"a",@progbits
+ 302               	keymaps:
+ 303 0000 29        		.byte	41
+ 304 0001 1E        		.byte	30
+ 305 0002 1F        		.byte	31
+ 306 0003 20        		.byte	32
+ 307 0004 21        		.byte	33
+ 308 0005 22        		.byte	34
+ 309 0006 23        		.byte	35
+ 310 0007 24        		.byte	36
+ 311 0008 25        		.byte	37
+ 312 0009 26        		.byte	38
+ 313 000a 27        		.byte	39
+ 314 000b 2D        		.byte	45
+ 315 000c 2E        		.byte	46
+ 316 000d 2A        		.byte	42
+ 317 000e 2B        		.byte	43
+ 318 000f 14        		.byte	20
+ 319 0010 1A        		.byte	26
+ 320 0011 08        		.byte	8
+ 321 0012 15        		.byte	21
+ 322 0013 17        		.byte	23
+ 323 0014 1C        		.byte	28
+ 324 0015 18        		.byte	24
+ 325 0016 0C        		.byte	12
+ 326 0017 12        		.byte	18
+ 327 0018 13        		.byte	19
+ 328 0019 2F        		.byte	47
+ 329 001a 30        		.byte	48
+ 330 001b 31        		.byte	49
+ 331 001c 39        		.byte	57
+ 332 001d 04        		.byte	4
+ 333 001e 16        		.byte	22
+ 334 001f 07        		.byte	7
+ 335 0020 09        		.byte	9
+ 336 0021 0A        		.byte	10
+ 337 0022 0B        		.byte	11
+ 338 0023 0D        		.byte	13
+ 339 0024 0E        		.byte	14
+ 340 0025 0F        		.byte	15
+ 341 0026 33        		.byte	51
+ 342 0027 34        		.byte	52
+ 343 0028 28        		.byte	40
+ 344 0029 28        		.byte	40
+ 345 002a E1        		.byte	-31
+ 346 002b 1D        		.byte	29
+ 347 002c 1B        		.byte	27
+ 348 002d 06        		.byte	6
+ 349 002e 19        		.byte	25
+ 350 002f 05        		.byte	5
+ 351 0030 11        		.byte	17
+ 352 0031 10        		.byte	16
+ 353 0032 36        		.byte	54
+ 354 0033 37        		.byte	55
+ 355 0034 38        		.byte	56
+ 356 0035 4B        		.byte	75
+ 357 0036 52        		.byte	82
+ 358 0037 4E        		.byte	78
+ 359 0038 E0        		.byte	-32
+ 360 0039 E3        		.byte	-29
+ 361 003a E2        		.byte	-30
+ 362 003b C0        		.byte	-64
+ 363 003c 00        		.byte	0
+ 364 003d 2C        		.byte	44
+ 365 003e 00        		.byte	0
+ 366 003f 2C        		.byte	44
+ 367 0040 E0        		.byte	-32
+ 368 0041 00        		.byte	0
+ 369 0042 76        		.byte	118
+ 370 0043 50        		.byte	80
+ 371 0044 51        		.byte	81
+ 372 0045 4F        		.byte	79
+ 373 0046 35        		.byte	53
+ 374 0047 3A        		.byte	58
+ 375 0048 3B        		.byte	59
+ 376 0049 3C        		.byte	60
+ 377 004a 3D        		.byte	61
+ 378 004b 3E        		.byte	62
+ 379 004c 3F        		.byte	63
+ 380 004d 40        		.byte	64
+ 381 004e 41        		.byte	65
+ 382 004f 42        		.byte	66
+ 383 0050 43        		.byte	67
+ 384 0051 44        		.byte	68
+ 385 0052 45        		.byte	69
+ 386 0053 01        		.byte	1
+ 387 0054 01        		.byte	1
+ 388 0055 01        		.byte	1
+ 389 0056 01        		.byte	1
+ 390 0057 01        		.byte	1
+ 391 0058 01        		.byte	1
+ 392 0059 01        		.byte	1
+ 393 005a 01        		.byte	1
+ 394 005b 01        		.byte	1
+ 395 005c 01        		.byte	1
+ 396 005d 01        		.byte	1
+ 397 005e 01        		.byte	1
+ 398 005f 01        		.byte	1
+ 399 0060 01        		.byte	1
+ 400 0061 01        		.byte	1
+ 401 0062 01        		.byte	1
+ 402 0063 01        		.byte	1
+ 403 0064 01        		.byte	1
+ 404 0065 01        		.byte	1
+ 405 0066 01        		.byte	1
+ 406 0067 01        		.byte	1
+ 407 0068 01        		.byte	1
+ 408 0069 01        		.byte	1
+ 409 006a 01        		.byte	1
+ 410 006b 01        		.byte	1
+ 411 006c 01        		.byte	1
+ 412 006d 01        		.byte	1
+ 413 006e 01        		.byte	1
+ 414 006f 01        		.byte	1
+ 415 0070 01        		.byte	1
+ 416 0071 01        		.byte	1
+ 417 0072 01        		.byte	1
+ 418 0073 01        		.byte	1
+ 419 0074 01        		.byte	1
+ 420 0075 01        		.byte	1
+ 421 0076 01        		.byte	1
+ 422 0077 01        		.byte	1
+ 423 0078 01        		.byte	1
+ 424 0079 01        		.byte	1
+ 425 007a 01        		.byte	1
+ 426 007b 01        		.byte	1
+ 427 007c 01        		.byte	1
+ 428 007d 01        		.byte	1
+ 429 007e 01        		.byte	1
+ 430 007f 01        		.byte	1
+ 431 0080 01        		.byte	1
+ 432 0081 01        		.byte	1
+ 433 0082 00        		.byte	0
+ 434 0083 01        		.byte	1
+ 435 0084 00        		.byte	0
+ 436 0085 01        		.byte	1
+ 437 0086 01        		.byte	1
+ 438 0087 01        		.byte	1
+ 439 0088 01        		.byte	1
+ 440 0089 01        		.byte	1
+ 441 008a 01        		.byte	1
+ 442 008b 01        		.byte	1
+ 443 008c 01        		.byte	1
+ 444 008d 01        		.byte	1
+ 445 008e 01        		.byte	1
+ 446 008f 01        		.byte	1
+ 447 0090 01        		.byte	1
+ 448 0091 01        		.byte	1
+ 449 0092 01        		.byte	1
+ 450 0093 01        		.byte	1
+ 451 0094 01        		.byte	1
+ 452 0095 01        		.byte	1
+ 453 0096 01        		.byte	1
+ 454 0097 01        		.byte	1
+ 455 0098 01        		.byte	1
+ 456 0099 01        		.byte	1
+ 457 009a 01        		.byte	1
+ 458 009b 01        		.byte	1
+ 459 009c 01        		.byte	1
+ 460 009d 01        		.byte	1
+ 461 009e 01        		.byte	1
+ 462 009f 01        		.byte	1
+ 463 00a0 01        		.byte	1
+ 464 00a1 01        		.byte	1
+ 465 00a2 01        		.byte	1
+ 466 00a3 01        		.byte	1
+ 467 00a4 01        		.byte	1
+ 468 00a5 01        		.byte	1
+ 469 00a6 01        		.byte	1
+ 470 00a7 01        		.byte	1
+ 471 00a8 01        		.byte	1
+ 472 00a9 01        		.byte	1
+ 473 00aa 01        		.byte	1
+ 474 00ab 01        		.byte	1
+ 475 00ac 01        		.byte	1
+ 476 00ad 01        		.byte	1
+ 477 00ae 01        		.byte	1
+ 478 00af 01        		.byte	1
+ 479 00b0 01        		.byte	1
+ 480 00b1 01        		.byte	1
+ 481 00b2 01        		.byte	1
+ 482 00b3 01        		.byte	1
+ 483 00b4 01        		.byte	1
+ 484 00b5 01        		.byte	1
+ 485 00b6 01        		.byte	1
+ 486 00b7 01        		.byte	1
+ 487 00b8 01        		.byte	1
+ 488 00b9 01        		.byte	1
+ 489 00ba 01        		.byte	1
+ 490 00bb 01        		.byte	1
+ 491 00bc 01        		.byte	1
+ 492 00bd 01        		.byte	1
+ 493 00be 01        		.byte	1
+ 494 00bf 01        		.byte	1
+ 495 00c0 01        		.byte	1
+ 496 00c1 01        		.byte	1
+ 497 00c2 01        		.byte	1
+ 498 00c3 01        		.byte	1
+ 499 00c4 01        		.byte	1
+ 500 00c5 01        		.byte	1
+ 501 00c6 01        		.byte	1
+ 502 00c7 01        		.byte	1
+ 503 00c8 00        		.byte	0
+ 504 00c9 01        		.byte	1
+ 505 00ca 00        		.byte	0
+ 506 00cb 01        		.byte	1
+ 507 00cc 01        		.byte	1
+ 508 00cd 01        		.byte	1
+ 509 00ce 01        		.byte	1
+ 510 00cf 01        		.byte	1
+ 511 00d0 01        		.byte	1
+ 512 00d1 01        		.byte	1
+ 513 00d2 01        		.byte	1
+ 514 00d3 01        		.byte	1
+ 515 00d4 01        		.byte	1
+ 516 00d5 01        		.byte	1
+ 517 00d6 01        		.byte	1
+ 518 00d7 01        		.byte	1
+ 519 00d8 01        		.byte	1
+ 520 00d9 01        		.byte	1
+ 521 00da 01        		.byte	1
+ 522 00db 01        		.byte	1
+ 523 00dc 01        		.byte	1
+ 524 00dd 01        		.byte	1
+ 525 00de 01        		.byte	1
+ 526 00df 01        		.byte	1
+ 527 00e0 01        		.byte	1
+ 528 00e1 01        		.byte	1
+ 529 00e2 01        		.byte	1
+ 530 00e3 01        		.byte	1
+ 531 00e4 01        		.byte	1
+ 532 00e5 01        		.byte	1
+ 533 00e6 01        		.byte	1
+ 534 00e7 01        		.byte	1
+ 535 00e8 01        		.byte	1
+ 536 00e9 01        		.byte	1
+ 537 00ea 01        		.byte	1
+ 538 00eb 01        		.byte	1
+ 539 00ec 01        		.byte	1
+ 540 00ed 01        		.byte	1
+ 541 00ee 01        		.byte	1
+ 542 00ef 01        		.byte	1
+ 543 00f0 01        		.byte	1
+ 544 00f1 01        		.byte	1
+ 545 00f2 01        		.byte	1
+ 546 00f3 01        		.byte	1
+ 547 00f4 01        		.byte	1
+ 548 00f5 01        		.byte	1
+ 549 00f6 01        		.byte	1
+ 550 00f7 01        		.byte	1
+ 551 00f8 01        		.byte	1
+ 552 00f9 01        		.byte	1
+ 553 00fa 01        		.byte	1
+ 554 00fb 01        		.byte	1
+ 555 00fc 01        		.byte	1
+ 556 00fd 01        		.byte	1
+ 557 00fe 01        		.byte	1
+ 558 00ff 01        		.byte	1
+ 559 0100 01        		.byte	1
+ 560 0101 01        		.byte	1
+ 561 0102 01        		.byte	1
+ 562 0103 01        		.byte	1
+ 563 0104 01        		.byte	1
+ 564 0105 01        		.byte	1
+ 565 0106 01        		.byte	1
+ 566 0107 01        		.byte	1
+ 567 0108 01        		.byte	1
+ 568 0109 01        		.byte	1
+ 569 010a 01        		.byte	1
+ 570 010b 01        		.byte	1
+ 571 010c 01        		.byte	1
+ 572 010d 01        		.byte	1
+ 573 010e 00        		.byte	0
+ 574 010f 01        		.byte	1
+ 575 0110 00        		.byte	0
+ 576 0111 01        		.byte	1
+ 577 0112 01        		.byte	1
+ 578 0113 01        		.byte	1
+ 579 0114 01        		.byte	1
+ 580 0115 01        		.byte	1
+ 581 0116 01        		.byte	1
+ 582 0117 01        		.byte	1
+ 583 0118 01        		.byte	1
+ 584 0119 01        		.byte	1
+ 585 011a 01        		.byte	1
+ 586 011b 01        		.byte	1
+ 587 011c 01        		.byte	1
+ 588 011d 01        		.byte	1
+ 589 011e 01        		.byte	1
+ 590 011f 01        		.byte	1
+ 591 0120 01        		.byte	1
+ 592 0121 01        		.byte	1
+ 593 0122 01        		.byte	1
+ 594 0123 01        		.byte	1
+ 595 0124 01        		.byte	1
+ 596 0125 01        		.byte	1
+ 597 0126 01        		.byte	1
+ 598 0127 01        		.byte	1
+ 599 0128 01        		.byte	1
+ 600 0129 01        		.byte	1
+ 601 012a 01        		.byte	1
+ 602 012b 01        		.byte	1
+ 603 012c 01        		.byte	1
+ 604 012d 01        		.byte	1
+ 605 012e 01        		.byte	1
+ 606 012f 01        		.byte	1
+ 607 0130 01        		.byte	1
+ 608 0131 01        		.byte	1
+ 609 0132 01        		.byte	1
+ 610 0133 01        		.byte	1
+ 611 0134 01        		.byte	1
+ 612 0135 01        		.byte	1
+ 613 0136 01        		.byte	1
+ 614 0137 01        		.byte	1
+ 615 0138 01        		.byte	1
+ 616 0139 01        		.byte	1
+ 617 013a 01        		.byte	1
+ 618 013b 01        		.byte	1
+ 619 013c 01        		.byte	1
+ 620 013d 01        		.byte	1
+ 621 013e 01        		.byte	1
+ 622 013f 01        		.byte	1
+ 623 0140 01        		.byte	1
+ 624 0141 01        		.byte	1
+ 625 0142 01        		.byte	1
+ 626 0143 01        		.byte	1
+ 627 0144 01        		.byte	1
+ 628 0145 01        		.byte	1
+ 629 0146 01        		.byte	1
+ 630 0147 01        		.byte	1
+ 631 0148 01        		.byte	1
+ 632 0149 01        		.byte	1
+ 633 014a 01        		.byte	1
+ 634 014b 01        		.byte	1
+ 635 014c 01        		.byte	1
+ 636 014d 01        		.byte	1
+ 637 014e 01        		.byte	1
+ 638 014f 01        		.byte	1
+ 639 0150 01        		.byte	1
+ 640 0151 01        		.byte	1
+ 641 0152 01        		.byte	1
+ 642 0153 01        		.byte	1
+ 643 0154 00        		.byte	0
+ 644 0155 01        		.byte	1
+ 645 0156 00        		.byte	0
+ 646 0157 01        		.byte	1
+ 647 0158 01        		.byte	1
+ 648 0159 01        		.byte	1
+ 649 015a 01        		.byte	1
+ 650 015b 01        		.byte	1
+ 651 015c 01        		.byte	1
+ 652 015d 01        		.byte	1
+ 653 015e 01        		.byte	1
+ 654 015f 01        		.byte	1
+ 655 0160 01        		.byte	1
+ 656 0161 01        		.byte	1
+ 657 0162 01        		.byte	1
+ 658 0163 01        		.byte	1
+ 659 0164 01        		.byte	1
+ 660 0165 01        		.byte	1
+ 661 0166 01        		.byte	1
+ 662 0167 01        		.byte	1
+ 663 0168 01        		.byte	1
+ 664 0169 01        		.byte	1
+ 665 016a 01        		.byte	1
+ 666 016b 01        		.byte	1
+ 667 016c 01        		.byte	1
+ 668 016d 01        		.byte	1
+ 669 016e 01        		.byte	1
+ 670 016f 01        		.byte	1
+ 671 0170 01        		.byte	1
+ 672 0171 01        		.byte	1
+ 673 0172 01        		.byte	1
+ 674 0173 01        		.byte	1
+ 675 0174 01        		.byte	1
+ 676 0175 01        		.byte	1
+ 677 0176 01        		.byte	1
+ 678 0177 01        		.byte	1
+ 679 0178 01        		.byte	1
+ 680 0179 01        		.byte	1
+ 681 017a 01        		.byte	1
+ 682 017b 01        		.byte	1
+ 683 017c 01        		.byte	1
+ 684 017d 01        		.byte	1
+ 685 017e 01        		.byte	1
+ 686 017f 01        		.byte	1
+ 687 0180 01        		.byte	1
+ 688 0181 01        		.byte	1
+ 689 0182 01        		.byte	1
+ 690 0183 01        		.byte	1
+ 691 0184 01        		.byte	1
+ 692 0185 01        		.byte	1
+ 693 0186 01        		.byte	1
+ 694 0187 01        		.byte	1
+ 695 0188 01        		.byte	1
+ 696 0189 01        		.byte	1
+ 697 018a 01        		.byte	1
+ 698 018b 01        		.byte	1
+ 699 018c 01        		.byte	1
+ 700 018d 01        		.byte	1
+ 701 018e 01        		.byte	1
+ 702 018f 01        		.byte	1
+ 703 0190 01        		.byte	1
+ 704 0191 01        		.byte	1
+ 705 0192 01        		.byte	1
+ 706 0193 01        		.byte	1
+ 707 0194 01        		.byte	1
+ 708 0195 01        		.byte	1
+ 709 0196 01        		.byte	1
+ 710 0197 01        		.byte	1
+ 711 0198 01        		.byte	1
+ 712 0199 01        		.byte	1
+ 713 019a 00        		.byte	0
+ 714 019b 01        		.byte	1
+ 715 019c 00        		.byte	0
+ 716 019d 01        		.byte	1
+ 717 019e 01        		.byte	1
+ 718 019f 01        		.byte	1
+ 719 01a0 01        		.byte	1
+ 720 01a1 01        		.byte	1
+ 721 01a2 01        		.byte	1
+ 722 01a3 01        		.byte	1
+ 723 01a4 01        		.byte	1
+ 724 01a5 01        		.byte	1
+ 725 01a6 01        		.byte	1
+ 726 01a7 01        		.byte	1
+ 727 01a8 01        		.byte	1
+ 728 01a9 01        		.byte	1
+ 729 01aa 01        		.byte	1
+ 730 01ab 01        		.byte	1
+ 731 01ac 01        		.byte	1
+ 732 01ad 01        		.byte	1
+ 733 01ae 01        		.byte	1
+ 734 01af 01        		.byte	1
+ 735 01b0 01        		.byte	1
+ 736 01b1 01        		.byte	1
+ 737 01b2 01        		.byte	1
+ 738 01b3 01        		.byte	1
+ 739 01b4 01        		.byte	1
+ 740 01b5 01        		.byte	1
+ 741 01b6 01        		.byte	1
+ 742 01b7 01        		.byte	1
+ 743 01b8 01        		.byte	1
+ 744 01b9 01        		.byte	1
+ 745 01ba 01        		.byte	1
+ 746 01bb 01        		.byte	1
+ 747 01bc 01        		.byte	1
+ 748 01bd 01        		.byte	1
+ 749 01be 01        		.byte	1
+ 750 01bf 01        		.byte	1
+ 751 01c0 01        		.byte	1
+ 752 01c1 01        		.byte	1
+ 753 01c2 01        		.byte	1
+ 754 01c3 01        		.byte	1
+ 755 01c4 01        		.byte	1
+ 756 01c5 01        		.byte	1
+ 757 01c6 01        		.byte	1
+ 758 01c7 01        		.byte	1
+ 759 01c8 01        		.byte	1
+ 760 01c9 01        		.byte	1
+ 761 01ca 01        		.byte	1
+ 762 01cb 01        		.byte	1
+ 763 01cc 01        		.byte	1
+ 764 01cd 01        		.byte	1
+ 765 01ce 01        		.byte	1
+ 766 01cf 01        		.byte	1
+ 767 01d0 01        		.byte	1
+ 768 01d1 01        		.byte	1
+ 769 01d2 01        		.byte	1
+ 770 01d3 01        		.byte	1
+ 771 01d4 01        		.byte	1
+ 772 01d5 01        		.byte	1
+ 773 01d6 01        		.byte	1
+ 774 01d7 01        		.byte	1
+ 775 01d8 01        		.byte	1
+ 776 01d9 01        		.byte	1
+ 777 01da 01        		.byte	1
+ 778 01db 01        		.byte	1
+ 779 01dc 01        		.byte	1
+ 780 01dd 01        		.byte	1
+ 781 01de 01        		.byte	1
+ 782 01df 01        		.byte	1
+ 783 01e0 00        		.byte	0
+ 784 01e1 01        		.byte	1
+ 785 01e2 00        		.byte	0
+ 786 01e3 01        		.byte	1
+ 787 01e4 01        		.byte	1
+ 788 01e5 01        		.byte	1
+ 789 01e6 01        		.byte	1
+ 790 01e7 01        		.byte	1
+ 791 01e8 01        		.byte	1
+ 792 01e9 01        		.byte	1
+ 793 01ea 01        		.byte	1
+ 794 01eb 01        		.byte	1
+ 795 01ec 01        		.byte	1
+ 796 01ed 01        		.byte	1
+ 797 01ee 01        		.byte	1
+ 798 01ef 01        		.byte	1
+ 799 01f0 01        		.byte	1
+ 800 01f1 01        		.byte	1
+ 801 01f2 01        		.byte	1
+ 802 01f3 01        		.byte	1
+ 803 01f4 01        		.byte	1
+ 804 01f5 01        		.byte	1
+ 805 01f6 01        		.byte	1
+ 806 01f7 01        		.byte	1
+ 807 01f8 01        		.byte	1
+ 808 01f9 01        		.byte	1
+ 809 01fa 01        		.byte	1
+ 810 01fb 01        		.byte	1
+ 811 01fc 01        		.byte	1
+ 812 01fd 01        		.byte	1
+ 813 01fe 01        		.byte	1
+ 814 01ff 01        		.byte	1
+ 815 0200 01        		.byte	1
+ 816 0201 01        		.byte	1
+ 817 0202 01        		.byte	1
+ 818 0203 01        		.byte	1
+ 819 0204 01        		.byte	1
+ 820 0205 01        		.byte	1
+ 821 0206 01        		.byte	1
+ 822 0207 01        		.byte	1
+ 823 0208 01        		.byte	1
+ 824 0209 01        		.byte	1
+ 825 020a 01        		.byte	1
+ 826 020b 01        		.byte	1
+ 827 020c 01        		.byte	1
+ 828 020d 01        		.byte	1
+ 829 020e 01        		.byte	1
+ 830 020f 01        		.byte	1
+ 831 0210 01        		.byte	1
+ 832 0211 01        		.byte	1
+ 833 0212 01        		.byte	1
+ 834 0213 01        		.byte	1
+ 835 0214 01        		.byte	1
+ 836 0215 01        		.byte	1
+ 837 0216 01        		.byte	1
+ 838 0217 01        		.byte	1
+ 839 0218 01        		.byte	1
+ 840 0219 01        		.byte	1
+ 841 021a 01        		.byte	1
+ 842 021b 01        		.byte	1
+ 843 021c 01        		.byte	1
+ 844 021d 01        		.byte	1
+ 845 021e 01        		.byte	1
+ 846 021f 01        		.byte	1
+ 847 0220 01        		.byte	1
+ 848 0221 01        		.byte	1
+ 849 0222 01        		.byte	1
+ 850 0223 01        		.byte	1
+ 851 0224 01        		.byte	1
+ 852 0225 01        		.byte	1
+ 853 0226 00        		.byte	0
+ 854 0227 01        		.byte	1
+ 855 0228 00        		.byte	0
+ 856 0229 01        		.byte	1
+ 857 022a 01        		.byte	1
+ 858 022b 01        		.byte	1
+ 859 022c 01        		.byte	1
+ 860 022d 01        		.byte	1
+ 861 022e 01        		.byte	1
+ 862 022f 01        		.byte	1
+ 863               		.text
+ 864               	.Letext0:
+ 865               		.file 2 "/usr/lib/avr/include/stdint.h"
+ 866               		.file 3 "../tmk_core/common/keycode.h"
+ 867               		.file 4 "../tmk_core/common/keyboard.h"
+ 868               		.file 5 "../tmk_core/common/action_code.h"
+ 869               		.file 6 "../tmk_core/common/action_macro.h"
+ 870               		.file 7 "../tmk_core/common/action.h"
+ 871               		.file 8 "../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 keymap.c
+     /tmp/ccAYh4RP.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccAYh4RP.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccAYh4RP.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccAYh4RP.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccAYh4RP.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccAYh4RP.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccAYh4RP.s:14     .text.action_get_macro:0000000000000000 action_get_macro
+     /tmp/ccAYh4RP.s:264    .progmem.data.__m.4656:0000000000000000 __m.4656
+     /tmp/ccAYh4RP.s:254    .progmem.data.__m.4661:0000000000000000 __m.4661
+     /tmp/ccAYh4RP.s:244    .progmem.data.__m.4666:0000000000000000 __m.4666
+     /tmp/ccAYh4RP.s:234    .progmem.data.__m.4671:0000000000000000 __m.4671
+     /tmp/ccAYh4RP.s:224    .progmem.data.__m.4676:0000000000000000 __m.4676
+     /tmp/ccAYh4RP.s:214    .progmem.data.__m.4681:0000000000000000 __m.4681
+     /tmp/ccAYh4RP.s:204    .progmem.data.__m.4686:0000000000000000 __m.4686
+     /tmp/ccAYh4RP.s:194    .progmem.data.__m.4691:0000000000000000 __m.4691
+     /tmp/ccAYh4RP.s:269    .progmem.data.__m.4654:0000000000000000 __m.4654
+     /tmp/ccAYh4RP.s:259    .progmem.data.__m.4659:0000000000000000 __m.4659
+     /tmp/ccAYh4RP.s:249    .progmem.data.__m.4664:0000000000000000 __m.4664
+     /tmp/ccAYh4RP.s:239    .progmem.data.__m.4669:0000000000000000 __m.4669
+     /tmp/ccAYh4RP.s:229    .progmem.data.__m.4674:0000000000000000 __m.4674
+     /tmp/ccAYh4RP.s:219    .progmem.data.__m.4679:0000000000000000 __m.4679
+     /tmp/ccAYh4RP.s:209    .progmem.data.__m.4684:0000000000000000 __m.4684
+     /tmp/ccAYh4RP.s:199    .progmem.data.__m.4689:0000000000000000 __m.4689
+     /tmp/ccAYh4RP.s:275    .progmem.data.fn_actions:0000000000000000 fn_actions
+     /tmp/ccAYh4RP.s:302    .progmem.data.keymaps:0000000000000000 keymaps
+
+UNDEFINED SYMBOLS
+__tablejump2__
